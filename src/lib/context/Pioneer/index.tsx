@@ -28,6 +28,7 @@
 // import { KkRestAdapter } from "@keepkey/hdwallet-keepkey-rest";
 // import { KeepKeySdk } from "@keepkey/keepkey-sdk";
 // import { SDK } from "@pioneer-sdk/sdk";
+import { useConnectWallet } from "@web3-onboard/react";
 import * as core from "@shapeshiftoss/hdwallet-core";
 // import * as keplr from "@shapeshiftoss/hdwallet-keplr";
 // import * as metaMask from "@shapeshiftoss/hdwallet-metamask";
@@ -156,6 +157,7 @@ export const PioneerProvider = ({
   // const [username, setUsername] = useState<string | null>(null);
   // const [context, setContext] = useState<string | null>(null);
   // const [wallets, setSetWallets] = useState([]);
+  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
   const [context, setContext] = useState<string | null>(null);
   const [blockchainContext, setBlockchainContext] = useState<string | null>(
     null
@@ -170,6 +172,9 @@ export const PioneerProvider = ({
     try {
       // eslint-disable-next-line no-console
       console.log("onStart***** ");
+      if(!wallet)
+        await connect();
+
       const serviceKey: string | null = localStorage.getItem("serviceKey"); // KeepKey api key
       const queryKey: string | null = localStorage.getItem("queryKey");
       const username: string | null = localStorage.getItem("username");
