@@ -25,7 +25,7 @@ export default defineConfig(({}) => {
       alias: {
         lib: resolve(__dirname, "src/lib"),
         routes: resolve(__dirname, "src/routes"),
-        // util: 'rollup-plugin-node-polyfills/polyfills/util',
+        util: 'rollup-plugin-node-polyfills/polyfills/util',
         sys: 'util',
         // events: 'rollup-plugin-node-polyfills/polyfills/events',
         // stream: 'rollup-plugin-node-polyfills/polyfills/stream',
@@ -76,7 +76,7 @@ export default defineConfig(({}) => {
             buffer: true
           }),
           //NodeModulesPolyfillPlugin()
-          // rollupNodePolyFill()
+          rollupNodePolyFill()
         ],
       }
     },
