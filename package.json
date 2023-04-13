@@ -38,7 +38,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.10.0",
-    "rollup-plugin-node-polyfills": "^0.2.1"
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-postcss": "^4.0.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.4.4",
