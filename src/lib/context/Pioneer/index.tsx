@@ -27,7 +27,7 @@
 // import * as core from "@shapeshiftoss/hdwallet-core";
 // import { KkRestAdapter } from "@keepkey/hdwallet-keepkey-rest";
 // import { KeepKeySdk } from "@keepkey/keepkey-sdk";
-// import { SDK } from "@pioneer-sdk/sdk";
+import { SDK } from "@pioneer-sdk/sdk";
 import { useConnectWallet } from "@web3-onboard/react";
 import * as core from "@shapeshiftoss/hdwallet-core";
 // import * as keplr from "@shapeshiftoss/hdwallet-keplr";
