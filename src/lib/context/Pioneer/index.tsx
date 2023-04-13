@@ -175,8 +175,17 @@ export const PioneerProvider = ({
       if (!wallet) await connect();
 
       const serviceKey: string | null = localStorage.getItem("serviceKey"); // KeepKey api key
-      const queryKey: string | null = localStorage.getItem("queryKey");
-      const username: string | null = localStorage.getItem("username");
+      let queryKey: string | null = localStorage.getItem("queryKey");
+      let username: string | null = localStorage.getItem("username");
+      if (!queryKey) {
+        queryKey = `key23423423`;
+        localStorage.setItem("queryKey", queryKey);
+      }
+      if (!username) {
+        username = `user:2342342342`;
+        username = username.substring(0, 13);
+        localStorage.setItem("username", username);
+      }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       dispatch({ type: WalletActions.SET_USERNAME, payload: username });
