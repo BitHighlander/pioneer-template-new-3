@@ -41,6 +41,7 @@
     "react-router-dom": "^6.10.0",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "rollup-plugin-postcss": "^4.0.2",
+    "short-uuid": "^4.2.2",
     "stream-browserify": "^3.0.0"
   },
   "devDependencies": {
