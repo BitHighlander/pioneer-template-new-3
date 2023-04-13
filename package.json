@@ -25,6 +25,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@fontsource/plus-jakarta-sans": "^4.5.11",
     "@pioneer-sdk/sdk": "^1.1.73",
     "@shapeshiftoss/hdwallet-core": "^1.46.2",
