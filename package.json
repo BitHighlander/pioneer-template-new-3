@@ -27,6 +27,7 @@
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@fontsource/plus-jakarta-sans": "^4.5.11",
+    "@pioneer-platform/pioneer-client": "8.1.33",
     "@pioneer-sdk/sdk": "^1.1.73",
     "@shapeshiftoss/hdwallet-core": "^1.46.2",
     "@shapeshiftoss/hdwallet-native": "^1.46.2",
