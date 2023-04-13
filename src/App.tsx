@@ -11,6 +11,7 @@ import web3Onboard from "./web3-onboard";
 import * as buffer from "buffer";
 
 window.Buffer = buffer.Buffer;
+
 const App = () => (
   <Web3OnboardProvider web3Onboard={web3Onboard}>
     <PioneerProvider>
