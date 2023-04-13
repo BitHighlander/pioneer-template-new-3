@@ -38,16 +38,6 @@ export default defineConfig(({}) => {
         os: 'rollup-plugin-node-polyfills/polyfills/os',
         assert: 'rollup-plugin-node-polyfills/polyfills/assert',
         constants: 'rollup-plugin-node-polyfills/polyfills/constants',
-        _stream_duplex:
-            'rollup-plugin-node-polyfills/polyfills/readable-stream/duplex',
-        _stream_passthrough:
-            'rollup-plugin-node-polyfills/polyfills/readable-stream/passthrough',
-        _stream_readable:
-            'rollup-plugin-node-polyfills/polyfills/readable-stream/readable',
-        _stream_writable:
-            'rollup-plugin-node-polyfills/polyfills/readable-stream/writable',
-        _stream_transform:
-            'rollup-plugin-node-polyfills/polyfills/readable-stream/transform',
         timers: 'rollup-plugin-node-polyfills/polyfills/timers',
         console: 'rollup-plugin-node-polyfills/polyfills/console',
         vm: 'rollup-plugin-node-polyfills/polyfills/vm',
