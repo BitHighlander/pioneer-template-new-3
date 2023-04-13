@@ -26,6 +26,8 @@
     "@emotion/styled": "^11.10.6",
     "@fontsource/plus-jakarta-sans": "^4.5.11",
     "@pioneer-sdk/sdk": "^1.1.73",
+    "@shapeshiftoss/hdwallet-core": "^1.46.2",
+    "@shapeshiftoss/hdwallet-native": "^1.46.2",
     "framer-motion": "^10.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
