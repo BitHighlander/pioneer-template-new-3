@@ -49,7 +49,7 @@ export default defineConfig(({}) => {
       rollupOptions: {
         external: [
           /^node:.*/,
-          ""
+          'lib/styles/theme'
         ],
         plugins: [
           // inject({ Buffer: ['Buffer','Buffer'], process: ['process'] }),
