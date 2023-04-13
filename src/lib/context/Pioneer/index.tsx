@@ -178,7 +178,7 @@ export const PioneerProvider = ({
       let queryKey: string | null = localStorage.getItem("queryKey");
       let username: string | null = localStorage.getItem("username");
       if (!queryKey) {
-        queryKey = `key23423423`;
+        queryKey = `key234234233`;
         localStorage.setItem("queryKey", queryKey);
       }
       if (!username) {
