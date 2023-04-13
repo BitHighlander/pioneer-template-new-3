@@ -25,8 +25,8 @@
 // import { KeepKeySdk } from "@keepkey/keepkey-sdk";
 // import { SDK } from "@pioneer-sdk/sdk";
 // import * as core from "@shapeshiftoss/hdwallet-core";
-// import { KkRestAdapter } from "@keepkey/hdwallet-keepkey-rest";
-// import { KeepKeySdk } from "@keepkey/keepkey-sdk";
+import { KkRestAdapter } from "@keepkey/hdwallet-keepkey-rest";
+import { KeepKeySdk } from "@keepkey/keepkey-sdk";
 import { SDK } from "@pioneer-sdk/sdk";
 import * as core from "@shapeshiftoss/hdwallet-core";
 // import * as keplr from "@shapeshiftoss/hdwallet-keplr";
@@ -202,7 +202,7 @@ export const PioneerProvider = ({
           url: "https://pioneer-template.vercel.com",
         },
       };
-      // const sdkKeepKey = await KeepKeySdk.create(config);
+      const sdkKeepKey = await KeepKeySdk.create(config);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       if (!config.apiKey !== serviceKey) {
@@ -359,26 +359,20 @@ export const PioneerProvider = ({
       setContext(user.data.context);
       setBlockchainContext(user.data.blockchainContext);
       setAssetContext(user.data.assetContext);
-      // // get walletSoftware
-      // const walletSoftware = await nativeAdapter.pairDevice("testid");
-      // await nativeAdapter.initialize();
-      // // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // // @ts-ignore
-      // walletSoftware.loadDevice({ mnemonic });
-      //
+
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      // const walletKeepKey = await KkRestAdapter.useKeyring(
-      //   keyring
-      // ).pairDevice(sdkKeepKey);
-      // // eslint-disable-next-line no-console
-      // console.log("walletKeepKey: ", walletKeepKey);
-      //
-      // // pair keepkey
-      // const successKeepKey = await appInit.pairWallet(walletKeepKey);
-      // // eslint-disable-next-line no-console
-      // console.log("successKeepKey: ", successKeepKey);
+      const walletKeepKey = await KkRestAdapter.useKeyring(
+        keyring
+      ).pairDevice(sdkKeepKey);
+      // eslint-disable-next-line no-console
+      console.log("walletKeepKey: ", walletKeepKey);
+
+      // pair keepkey
+      const successKeepKey = await appInit.pairWallet(walletKeepKey);
+      // eslint-disable-next-line no-console
+      console.log("successKeepKey: ", successKeepKey);
       //
       // const successSoftware = await appInit.pairWallet(walletKeepKey);
       // // eslint-disable-next-line no-console
