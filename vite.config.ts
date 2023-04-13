@@ -66,7 +66,7 @@ export default defineConfig(({}) => {
             process: true,
             buffer: true
           }),
-          // NodeModulesPolyfillPlugin()
+          //NodeModulesPolyfillPlugin()
         ],
       }
     },
@@ -81,9 +81,9 @@ export default defineConfig(({}) => {
           // inject({ Buffer: ['Buffer','Buffer'], process: ['process'] }),
           NodeGlobalsPolyfillPlugin({
             process: true,
-            buffer: false
+            buffer: true
           }),
-          NodeModulesPolyfillPlugin()
+          //NodeModulesPolyfillPlugin()
           // rollupNodePolyFill()
         ],
       }
