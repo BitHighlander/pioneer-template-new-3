@@ -17,7 +17,6 @@ export default defineConfig(({}) => {
     // vite config
     define: {
       'process.env': {},
-      global: {},
     },
     plugins: [react(),postcss({
       // PostCSS plugins configuration
