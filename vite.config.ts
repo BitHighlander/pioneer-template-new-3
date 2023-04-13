@@ -2,7 +2,7 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-// import postcss from 'rollup-plugin-postcss';
+import postcss from 'rollup-plugin-postcss';
 // import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
 // import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
 // import inject from '@rollup/plugin-inject'
@@ -20,9 +20,9 @@ export default defineConfig(({}) => {
       global: {},
     },
     plugins: [react(),
-      // postcss({
-      // // PostCSS plugins configuration
-      // })
+      postcss({
+      // PostCSS plugins configuration
+      })
     ],
     resolve: {
       alias: {
