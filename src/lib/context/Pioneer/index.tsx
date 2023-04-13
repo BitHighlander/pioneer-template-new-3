@@ -28,11 +28,11 @@
 // import { KkRestAdapter } from "@keepkey/hdwallet-keepkey-rest";
 // import { KeepKeySdk } from "@keepkey/keepkey-sdk";
 import { SDK } from "@pioneer-sdk/sdk";
-import { useConnectWallet } from "@web3-onboard/react";
 import * as core from "@shapeshiftoss/hdwallet-core";
 // import * as keplr from "@shapeshiftoss/hdwallet-keplr";
 // import * as metaMask from "@shapeshiftoss/hdwallet-metamask";
 import { NativeAdapter } from "@shapeshiftoss/hdwallet-native";
+import { useConnectWallet } from "@web3-onboard/react";
 // import { entropyToMnemonic } from "bip39";
 import {
   createContext,
@@ -172,8 +172,7 @@ export const PioneerProvider = ({
     try {
       // eslint-disable-next-line no-console
       console.log("onStart***** ");
-      if(!wallet)
-        await connect();
+      if (!wallet) await connect();
 
       const serviceKey: string | null = localStorage.getItem("serviceKey"); // KeepKey api key
       const queryKey: string | null = localStorage.getItem("queryKey");
@@ -304,85 +303,77 @@ export const PioneerProvider = ({
       //   //   sdk
       //   // );
       //
-      //   if (!queryKey) {
-      //     queryKey = `key:${uuidv4()}`;
-      //     localStorage.setItem("queryKey", queryKey);
-      //   }
-      //   if (!username) {
-      //     username = `user:${uuidv4()}`;
-      //     username = username.substring(0, 13);
-      //     localStorage.setItem("username", username);
-      //   }
+
+      const blockchains = [
+        "bitcoin",
+        "ethereum",
+        "thorchain",
+        "bitcoincash",
+        "litecoin",
+        "binance",
+        "cosmos",
+        "dogecoin",
+      ];
+
+      // add custom paths
+      const paths: any = [];
+      const spec = "https://pioneers.dev/spec/swagger.json";
+      const wss = "wss://pioneers.dev";
+      // const spec = "http://127.0.0.1:9001/spec/swagger.json";
+      // const wss = "ws://127.0.0.1:9001";
+      const configPioneer: any = {
+        blockchains,
+        username,
+        queryKey,
+        spec,
+        wss,
+        paths,
+      };
+      const appInit = new SDK(spec, configPioneer);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const api = await appInit.init(walletSoftware);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      dispatch({ type: WalletActions.SET_API, payload: api });
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const user = await api.User();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      dispatch({ type: WalletActions.SET_USER, payload: user.data });
+      // setUsername(localStorage.getItem("username"));
+      // eslint-disable-next-line no-console
+      console.log("user: ", user.data);
+      // eslint-disable-next-line no-console
+      console.log("user.data.context: ", user.data.context);
+      setContext(user.data.context);
+      setBlockchainContext(user.data.blockchainContext);
+      setAssetContext(user.data.assetContext);
+      // // get walletSoftware
+      // const walletSoftware = await nativeAdapter.pairDevice("testid");
+      // await nativeAdapter.initialize();
+      // // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // // @ts-ignore
+      // walletSoftware.loadDevice({ mnemonic });
       //
-      //   const blockchains = [
-      //     "bitcoin",
-      //     "ethereum",
-      //     "thorchain",
-      //     "bitcoincash",
-      //     "litecoin",
-      //     "binance",
-      //     "cosmos",
-      //     "dogecoin",
-      //   ];
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      // const walletKeepKey = await KkRestAdapter.useKeyring(
+      //   keyring
+      // ).pairDevice(sdkKeepKey);
+      // // eslint-disable-next-line no-console
+      // console.log("walletKeepKey: ", walletKeepKey);
       //
-      //   // add custom paths
-      //   const paths: any = [];
-      //   // const spec = "https://pioneers.dev/spec/swagger.json";
-      //   // const wss = "wss://pioneers.dev";
-      //   const spec = "http://127.0.0.1:9001/spec/swagger.json";
-      //   const wss = "ws://127.0.0.1:9001";
-      //   const configPioneer: any = {
-      //     blockchains,
-      //     username,
-      //     queryKey,
-      //     spec,
-      //     wss,
-      //     paths,
-      //   };
-      //   const appInit = new SDK(spec, configPioneer);
-      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // @ts-ignore
-      //   const api = await appInit.init(walletMetaMask);
-      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // @ts-ignore
-      //   dispatch({ type: WalletActions.SET_API, payload: api });
-      //   const user = await api.User();
-      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // @ts-ignore
-      //   dispatch({ type: WalletActions.SET_USER, payload: user.data });
-      //   // setUsername(localStorage.getItem("username"));
-      //   // eslint-disable-next-line no-console
-      //   console.log("user: ", user.data);
-      //   // eslint-disable-next-line no-console
-      //   console.log("user.data.context: ", user.data.context);
-      //   setContext(user.data.context);
-      //   setBlockchainContext(user.data.blockchainContext);
-      //   setAssetContext(user.data.assetContext);
-      //   // // get walletSoftware
-      //   // const walletSoftware = await nativeAdapter.pairDevice("testid");
-      //   // await nativeAdapter.initialize();
-      //   // // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // // @ts-ignore
-      //   // walletSoftware.loadDevice({ mnemonic });
-      //   //
-      //   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //   // @ts-ignore
-      //   // eslint-disable-next-line react-hooks/rules-of-hooks
-      //   const walletKeepKey = await KkRestAdapter.useKeyring(
-      //     keyring
-      //   ).pairDevice(sdkKeepKey);
-      //   // eslint-disable-next-line no-console
-      //   console.log("walletKeepKey: ", walletKeepKey);
+      // // pair keepkey
+      // const successKeepKey = await appInit.pairWallet(walletKeepKey);
+      // // eslint-disable-next-line no-console
+      // console.log("successKeepKey: ", successKeepKey);
       //
-      //   // pair keepkey
-      //   const successKeepKey = await appInit.pairWallet(walletKeepKey);
-      //   // eslint-disable-next-line no-console
-      //   console.log("successKeepKey: ", successKeepKey);
-      //   //
-      //   // const successSoftware = await appInit.pairWallet(walletKeepKey);
-      //   // // eslint-disable-next-line no-console
-      //   // console.log("successSoftware: ", successSoftware);
-      // }
+      // const successSoftware = await appInit.pairWallet(walletKeepKey);
+      // // eslint-disable-next-line no-console
+      // console.log("successSoftware: ", successSoftware);
 
       // eslint-disable-next-line no-console
       // console.log("user: ", user);
