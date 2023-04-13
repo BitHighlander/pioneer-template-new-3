@@ -69,7 +69,7 @@ export default defineConfig(({}) => {
             process: true,
             buffer: true
           }),
-          NodeModulesPolyfillPlugin()
+          // NodeModulesPolyfillPlugin()
         ],
       }
     },
