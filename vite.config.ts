@@ -29,6 +29,7 @@ export default defineConfig(({}) => {
         sys: 'util',
         events: 'rollup-plugin-node-polyfills/polyfills/events',
         //stream: 'rollup-plugin-node-polyfills/polyfills/stream',
+        stream: 'stream-browserify',
         path: 'rollup-plugin-node-polyfills/polyfills/path',
         querystring: 'rollup-plugin-node-polyfills/polyfills/qs',
         punycode: 'rollup-plugin-node-polyfills/polyfills/punycode',
