@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 import postcss from 'rollup-plugin-postcss';
 // import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
-// import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
+import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
 // import inject from '@rollup/plugin-inject'
 // import wasm from 'vite-plugin-wasm'
 
