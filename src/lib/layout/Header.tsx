@@ -1,6 +1,7 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Avatar } from "@chakra-ui/react";
 
 import ThemeToggle from "./ThemeToggle";
+// import KEEPKEY_ICON from "./keepkey.png";
 
 const Header = () => {
   return (
@@ -14,6 +15,7 @@ const Header = () => {
     >
       <Box marginLeft="auto">
         <ThemeToggle />
+        <Avatar />
       </Box>
     </Flex>
   );
