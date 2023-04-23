@@ -5,10 +5,11 @@
   "author": "sozonome",
   "scripts": {
     "dev-build-and-serve": "export NODE_OPTIONS=--max-old-space-size=32768 && yarn build && yarn serve",
-    "build": "export NODE_OPTIONS=--max-old-space-size=32768 && yarn build",
     "serve": "vite preview",
     "dev": "vite",
+    "build": "pnpm type-check && export NODE_OPTIONS=--max-old-space-size=32768 && vite build",
     "build:turbo": "npx turbo build",
+    "serve": "vite preview",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix && pnpm format",
     "lint:turbo": "npx turbo lint",
